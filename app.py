@@ -2,18 +2,17 @@ import streamlit as st
 import numpy as np
 import joblib
 
-# Page config
+
 st.set_page_config(
     page_title="PCOS Prediction System",
     page_icon="🩺",
     layout="wide"
 )
 
-# Load model and scaler
 model = joblib.load("pcos_rf_model.pkl")
 scaler = joblib.load("scaler.pkl")
 
-# Sidebar
+
 st.sidebar.title("About Project")
 
 st.sidebar.info(
@@ -59,7 +58,7 @@ features = [
     'Endometrium (mm)'
 ]
 
-# Binary features
+
 binary_features = [
     'Pregnant(Y/N)',
     'Weight gain(Y/N)',
@@ -73,10 +72,10 @@ binary_features = [
 
 input_data = []
 
-# Section title
+
 st.subheader("Patient Information")
 
-# Create two columns
+
 col1, col2 = st.columns(2)
 
 for i, feature in enumerate(features):
@@ -85,11 +84,11 @@ for i, feature in enumerate(features):
 
     with current_col:
 
-        # Skip BMI input
+       
         if feature == 'BMI':
             continue
 
-        # Blood Group dropdown
+  
         elif feature == 'Blood Group':
 
             blood_group = st.selectbox(
@@ -122,7 +121,6 @@ for i, feature in enumerate(features):
                 blood_group_mapping.get(blood_group, 0)
             )
 
-        # Yes/No fields
         elif feature in binary_features:
 
             value = st.selectbox(
@@ -139,7 +137,7 @@ for i, feature in enumerate(features):
             else:
                 input_data.append(0)
 
-        # Numeric fields
+     
         else:
 
             value = st.text_input(
@@ -153,7 +151,7 @@ for i, feature in enumerate(features):
             except:
                 input_data.append(0)
 
-# BMI calculation
+
 try:
 
     weight_index = features.index('Weight (Kg)')
@@ -169,17 +167,16 @@ try:
 except:
     bmi = 0
 
-# Insert BMI in correct position
 bmi_index = features.index('BMI')
 
 input_data.insert(bmi_index, bmi)
 
-# Display BMI
+
 st.info(f"Calculated BMI: {round(bmi, 2)}")
 
 st.divider()
 
-# Buttons
+
 button_col1, button_col2 = st.columns(2)
 
 with button_col1:
@@ -188,11 +185,10 @@ with button_col1:
 with button_col2:
     clear_button = st.button("Clear Inputs")
 
-# Clear inputs
 if clear_button:
     st.rerun()
 
-# Prediction
+
 if predict_button:
 
     if sum(input_data) == 0:
