@@ -1,35 +1,78 @@
-Polycystic Ovary Syndrome (PCOS) is a common hormonal disorder affecting women of reproductive age. Early detection can help prevent long-term complications such as infertility, diabetes, and cardiovascular issues.
-This project builds and evaluates multiple Machine Learning models to predict PCOS using clinical and diagnostic data.
+Overview
 
-DATASET
-The dataset contains various clinical and diagnostic features such as:
+This project focuses on predicting Polycystic Ovary Syndrome (PCOS) using Machine Learning techniques. PCOS is a hormonal disorder that affects women and can lead to irregular menstrual cycles, weight gain, infertility, and other health complications.
+
+The goal of this project is to build a predictive model that can help in the early detection of PCOS using patient health data.
+
+Features
+Data preprocessing and cleaning
+Exploratory Data Analysis (EDA)
+Feature selection
+Machine Learning model training
+Model evaluation and comparison
+Prediction system for PCOS detection
+User-friendly interface using Streamlit (if applicable)
+Technologies Used
+Python
+Pandas
+NumPy
+Scikit-learn
+Matplotlib
+Seaborn
+Streamlit
+Machine Learning Algorithms Used
+Logistic Regression
+Random Forest Classifier
+Decision Tree Classifier
+Support Vector Machine (SVM)
+K-Nearest Neighbors (KNN)
+Dataset
+
+The dataset contains medical and health-related parameters such as:
 
 Age
-
+Weight
 BMI
-
 Blood Pressure
-
 Hormone Levels
-
+Menstrual Cycle Details
+Insulin Levels
 Follicle Count
 
-Menstrual Cycle Irregularity
+Dataset used for educational and research purposes only.
 
-Weight Gain
+Project Workflow
+Data Collection
+Data Cleaning & Preprocessing
+Exploratory Data Analysis
+Feature Engineering
+Model Training
+Model Evaluation
+Deployment using Streamlit
+Installation
 
-Hair Growth
+Clone the repository:
 
-Skin Darkening
+git clone https://github.com/your-username/pcos-prediction.git
 
-Other PCOS-related parameters
+Move to the project folder:
 
-Target Variable:
-PCOS (Y/N)
+cd pcos-prediction
 
-1 → PCOS
+Install dependencies:
 
-0 → No PCOS
+pip install -r requirements.txt
 
+Run the application:
 
-
+streamlit run app.py
+Results
+Achieved high prediction accuracy using Machine Learning models.
+Random Forest provided the best performance among tested algorithms.
+The system can assist in early-stage PCOS prediction and analysis.
+Future Improvements
+Improve dataset size and quality
+Add Deep Learning models
+Deploy on cloud platforms
+Enhance UI/UX
+Integrate real-time health monitoring
